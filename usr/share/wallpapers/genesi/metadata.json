@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "Genesi OS Team"
+            }
+        ],
+        "Id": "genesi",
+        "License": "GPL-3.0",
+        "Name": "Genesi OS"
+    }
+}

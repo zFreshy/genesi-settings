@@ -1,0 +1,14 @@
+[Common]
+OutlineCloseButton=true
+ShadowSize=ShadowVeryLarge
+ShadowStrength=255
+
+[Windeco]
+BorderSize=2
+ButtonSize=ButtonDefault
+DrawBackgroundGradient=true
+DrawBorderOnMaximizedWindows=false
+DrawSizeGrip=false
+DrawTitleBarSeparator=false
+TitleAlignment=AlignCenterFullWidth
+UseAnimations=true

@@ -1,13 +1,14 @@
 [Windows]
-BorderlessMaximizedWindows=true
+BorderlessMaximizedWindows=false
+RollOverDesktops=true
 
 [org.kde.kdecoration2]
 BorderSize=Normal
 BorderSizeAuto=false
 ButtonsOnLeft=XIA
 ButtonsOnRight=
-library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Genesi-Dark
+library=org.kde.breeze
+theme=Breeze
 
 [Plugins]
 blurEnabled=true
@@ -15,10 +16,17 @@ contrastEnabled=true
 kwin4_effect_translucencyEnabled=true
 slideEnabled=true
 zoomEnabled=false
+roundedcornersEnabled=true
+diminactiveEnabled=false
+magiclampEnabled=false
+wobblywindowsEnabled=false
 
 [Effect-Blur]
-BlurStrength=8
-NoiseStrength=2
+BlurStrength=10
+NoiseStrength=1
+
+[Effect-RoundedCorners]
+RoundedCornerRadius=12
 
 [Compositing]
 Backend=OpenGL
@@ -28,7 +36,7 @@ GLPreferBufferSwap=a
 GLTextureFilter=2
 HiddenPreviews=5
 OpenGLIsUnsafe=false
-WindowsBlockCompositing=true
+WindowsBlockCompositing=false
 XRenderSmoothScale=false
 
 [TabBox]
@@ -39,3 +47,10 @@ BorderActivate=9
 
 [Effect-DesktopGrid]
 BorderActivate=9
+
+[ModifierOnlyShortcuts]
+Meta=org.kde.plasmashell,/PlasmaShell,org.kde.PlasmaShell,activateLauncherMenu
+
+[Desktops]
+Number=1
+Rows=1

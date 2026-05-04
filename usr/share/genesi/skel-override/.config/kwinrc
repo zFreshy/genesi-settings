@@ -7,8 +7,8 @@ BorderSize=Normal
 BorderSizeAuto=false
 ButtonsOnLeft=XIA
 ButtonsOnRight=
-library=org.kde.breeze
-theme=Breeze
+library=org.kde.kdecoration3
+theme=org.kde.breeze
 
 [Plugins]
 blurEnabled=true
@@ -16,7 +16,6 @@ contrastEnabled=true
 kwin4_effect_translucencyEnabled=true
 slideEnabled=true
 zoomEnabled=false
-roundedcornersEnabled=true
 diminactiveEnabled=false
 magiclampEnabled=false
 wobblywindowsEnabled=false
@@ -24,9 +23,6 @@ wobblywindowsEnabled=false
 [Effect-Blur]
 BlurStrength=10
 NoiseStrength=1
-
-[Effect-RoundedCorners]
-RoundedCornerRadius=12
 
 [Compositing]
 Backend=OpenGL

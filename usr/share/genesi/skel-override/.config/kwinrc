@@ -13,18 +13,16 @@ theme=Breeze
 [Plugins]
 blurEnabled=true
 translucencyEnabled=true
-
-contrastEnabled=true
+forceblurEnabled=true
 kwin4_effect_translucencyEnabled=true
-slideEnabled=true
-zoomEnabled=false
-diminactiveEnabled=false
-magiclampEnabled=false
-wobblywindowsEnabled=false
 
 [Effect-Blur]
-BlurStrength=10
-NoiseStrength=1
+BlurStrength=12
+NoiseStrength=3
+
+[Effect-Translucency]
+ActiveOpacity=85
+InactiveOpacity=85
 
 [Compositing]
 Backend=OpenGL

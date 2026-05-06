@@ -94,7 +94,7 @@ Name=Genesi
 shadeSortColumn=true
 
 [KDE]
-widgetStyle=kvantum
+widgetStyle=Breeze
 contrast=4
 
 [WM]

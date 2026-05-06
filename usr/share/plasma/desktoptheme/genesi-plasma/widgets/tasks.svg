@@ -20,23 +20,23 @@
 
   <!-- Hover state -->
   <g id="hover-center">
-    <rect x="0" y="4" width="32" height="24" rx="8" ry="8" fill="currentColor" class="ColorScheme-Text" opacity="0.1"/>
+    <rect x="2" y="4" width="28" height="24" rx="4" ry="4" fill="currentColor" class="ColorScheme-Text" opacity="0.15"/>
   </g>
 
   <!-- Active/Selected state -->
   <g id="active-center">
-    <rect x="0" y="4" width="32" height="24" rx="8" ry="8" fill="currentColor" class="ColorScheme-Highlight" opacity="0.2"/>
+    <rect x="2" y="4" width="28" height="24" rx="4" ry="4" fill="currentColor" class="ColorScheme-Highlight" opacity="0.25"/>
     <!-- The little indicator dot/line at the bottom -->
     <rect x="12" y="28" width="8" height="3" rx="1.5" ry="1.5" fill="currentColor" class="ColorScheme-Highlight"/>
   </g>
 
   <!-- Focus state -->
   <g id="focus-center">
-    <rect x="0" y="4" width="32" height="24" rx="8" ry="8" fill="currentColor" class="ColorScheme-Highlight" opacity="0.3"/>
+    <rect x="2" y="4" width="28" height="24" rx="4" ry="4" fill="currentColor" class="ColorScheme-Highlight" opacity="0.3"/>
   </g>
 
   <!-- Attention state -->
   <g id="attention-center">
-    <rect x="0" y="4" width="32" height="24" rx="8" ry="8" fill="#ff5555" opacity="0.3"/>
+    <rect x="2" y="4" width="28" height="24" rx="4" ry="4" fill="#ff5555" opacity="0.3"/>
   </g>
 </svg>

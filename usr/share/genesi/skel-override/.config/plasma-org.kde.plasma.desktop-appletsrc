@@ -15,6 +15,11 @@ location=0
 plugin=org.kde.desktopcontainment
 wallpaperplugin=org.kde.image
 
+[Containments][1][General]
+alignment=0
+arrangement=1
+sortMode=-1
+
 [Containments][1][Wallpaper][org.kde.image][General]
 Image=/usr/share/wallpapers/genesi/wallpaper.png
 PreviewImage=/usr/share/wallpapers/genesi/wallpaper.png
@@ -34,9 +39,19 @@ showDate=true
 fontSize=14
 
 [Containments][1][Applets][20][Geometry]
-x=1100
+x=1400
 y=30
-width=250
+width=300
+height=120
+
+[Containments][1][Applets][24]
+immutability=1
+plugin=org.kde.plasma.weather
+
+[Containments][1][Applets][24][Geometry]
+x=1400
+y=170
+width=300
 height=120
 
 [Containments][1][Applets][21]
@@ -47,9 +62,9 @@ plugin=org.kde.plasma.systemmonitor.cpucore
 PreloadWeight=60
 
 [Containments][1][Applets][21][Geometry]
-x=1100
-y=170
-width=250
+x=1400
+y=310
+width=300
 height=150
 
 [Containments][1][Applets][22]
@@ -60,10 +75,20 @@ plugin=org.kde.plasma.systemmonitor.memory
 PreloadWeight=60
 
 [Containments][1][Applets][22][Geometry]
-x=1100
-y=340
-width=250
+x=1400
+y=480
+width=300
 height=150
+
+[Containments][1][Applets][25]
+immutability=1
+plugin=org.kde.plasma.diskquota
+
+[Containments][1][Applets][25][Geometry]
+x=1400
+y=650
+width=300
+height=120
 
 [Containments][1][Applets][23]
 immutability=1
@@ -73,12 +98,12 @@ plugin=org.kde.plasma.notes
 PreloadWeight=40
 
 [Containments][1][Applets][23][Configuration][General]
-note=<h2>Welcome to Genesi OS!</h2><p>Your developer-first operating system.</p><p>• Open Konsole for terminal</p><p>• Click Install to set up on disk</p>
+note=<h2>Reunião com a equipe</h2><p>Hoje às 14:00</p><br><h2>Atualizar protótipo do GenesiOS</h2><p>Amanhã</p>
 
 [Containments][1][Applets][23][Geometry]
-x=1100
-y=510
-width=250
+x=1400
+y=790
+width=300
 height=200
 
 
@@ -101,7 +126,7 @@ thickness=50
 
 [Containments][2][Applets][30]
 immutability=1
-plugin=org.kde.plasma.kickoff
+plugin=org.kde.plasma.kicker
 
 [Containments][2][Applets][30][Configuration][General]
 icon=/usr/share/pixmaps/genesi-logo.png

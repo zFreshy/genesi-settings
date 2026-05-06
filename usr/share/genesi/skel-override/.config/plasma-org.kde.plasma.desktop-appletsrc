@@ -120,7 +120,7 @@ immutability=1
 lastScreen=0
 location=4
 plugin=org.kde.panel
-panelOpacity=2
+panelOpacity=1
 panelLengthMode=0
 
 [Containments][2][General]
@@ -182,7 +182,7 @@ immutability=1
 lastScreen=0
 location=3
 plugin=org.kde.panel
-panelOpacity=2
+panelOpacity=1
 panelLengthMode=1
 
 [Containments][3][General]

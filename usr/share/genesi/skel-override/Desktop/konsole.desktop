@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Terminal
+GenericName=Terminal Emulator
+Comment=Command line terminal
+TryExec=konsole
+Exec=konsole
+Icon=utilities-terminal
+Terminal=false
+Categories=Qt;KDE;System;TerminalEmulator;

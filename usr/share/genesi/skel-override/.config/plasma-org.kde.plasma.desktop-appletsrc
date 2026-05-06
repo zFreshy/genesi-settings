@@ -110,41 +110,54 @@ width=300
 height=200
 
 
-# ==================================
-# TOP PANEL (Global Menu + Tray)
-# ==================================
 [Containments][2]
 activityId=
 formfactor=2
 immutability=1
 lastScreen=0
-location=3
+location=4
 plugin=org.kde.panel
-panelOpacity=1
+panelOpacity=2
 panelLengthMode=0
+panelSize=100
 
 [Containments][2][General]
-AppletOrder=40;4;9;7
-floating=0
-panelAlignment=0
-thickness=32
+AppletOrder=30;4;5;6;31;7;9;10
+floating=1
+panelAlignment=1
+thickness=50
 
-[Containments][2][Applets][40]
+[Containments][2][Applets][30]
 immutability=1
-plugin=org.kde.plasma.appmenu
+plugin=org.kde.plasma.kicker
+
+[Containments][2][Applets][30][Configuration][General]
+icon=/usr/share/pixmaps/genesi-logo.png
 
 [Containments][2][Applets][4]
 immutability=1
 plugin=org.kde.plasma.panelspacer
 
-[Containments][2][Applets][9]
+[Containments][2][Applets][5]
 immutability=1
-plugin=org.kde.plasma.digitalclock
+plugin=org.kde.plasma.icontasks
 
-[Containments][2][Applets][9][Configuration][Appearance]
-dateFormat=isoDate
-use24hFormat=2
-showDate=true
+[Containments][2][Applets][5][Configuration][General]
+iconSpacing=2
+launchers=applications:org.kde.dolphin.desktop,preferred://browser,applications:org.kde.konsole.desktop,applications:systemsettings.desktop
+
+[Containments][2][Applets][6]
+immutability=1
+plugin=org.kde.plasma.panelspacer
+
+[Containments][2][Applets][31]
+immutability=1
+plugin=org.kde.plasma.icon
+
+[Containments][2][Applets][31][Configuration][General]
+applicationName=Genesi AI Mode
+iconName=cpu
+url=file:///usr/share/applications/genesi-aimode.desktop
 
 [Containments][2][Applets][7]
 immutability=1
@@ -154,62 +167,30 @@ plugin=org.kde.plasma.systemtray
 PreloadWeight=100
 SystrayContainmentId=8
 
+[Containments][2][Applets][9]
+immutability=1
+plugin=org.kde.plasma.digitalclock
+
+[Containments][2][Applets][9][Configuration][Appearance]
+dateFormat=isoDate
+use24hFormat=2
+
+[Containments][2][Applets][10]
+immutability=1
+plugin=org.kde.plasma.showdesktop
+
 [Containments][8]
 activityId=
 formfactor=2
 immutability=1
 lastScreen=0
-location=3
+location=4
 plugin=org.kde.plasma.private.systemtray
 
 [Containments][8][General]
 extraItems=org.kde.plasma.bluetooth,org.kde.plasma.battery,org.kde.plasma.brightness,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume
 knownItems=org.kde.plasma.battery,org.kde.plasma.bluetooth,org.kde.plasma.brightness,org.kde.plasma.clipboard,org.kde.plasma.devicenotifier,org.kde.plasma.manage-inputmethod,org.kde.plasma.mediacontroller,org.kde.plasma.networkmanagement,org.kde.plasma.notifications,org.kde.plasma.volume
 showAllItems=false
-
-
-# ==================================
-# BOTTOM DOCK (Icons Only)
-# ==================================
-[Containments][3]
-activityId=
-formfactor=2
-immutability=1
-lastScreen=0
-location=4
-plugin=org.kde.panel
-panelOpacity=1
-panelLengthMode=1
-
-[Containments][3][General]
-AppletOrder=30;5;31
-floating=1
-panelAlignment=1
-thickness=56
-
-[Containments][3][Applets][30]
-immutability=1
-plugin=org.kde.plasma.kicker
-
-[Containments][3][Applets][30][Configuration][General]
-icon=/usr/share/pixmaps/genesi-logo.png
-
-[Containments][3][Applets][5]
-immutability=1
-plugin=org.kde.plasma.icontasks
-
-[Containments][3][Applets][5][Configuration][General]
-iconSpacing=2
-launchers=applications:org.kde.dolphin.desktop,preferred://browser,applications:org.kde.konsole.desktop,applications:systemsettings.desktop
-
-[Containments][3][Applets][31]
-immutability=1
-plugin=org.kde.plasma.icon
-
-[Containments][3][Applets][31][Configuration][General]
-applicationName=Genesi AI Mode
-iconName=cpu
-url=file:///usr/share/applications/genesi-aimode.desktop
 
 [ScreenMapping]
 itemsOnEnabledScreens=

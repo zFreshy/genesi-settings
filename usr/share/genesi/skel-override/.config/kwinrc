@@ -8,7 +8,7 @@ BorderSizeAuto=false
 ButtonsOnLeft=XIA
 ButtonsOnRight=
 library=org.kde.kdecoration3
-theme=org.kde.breeze
+theme=Lightly
 
 [Plugins]
 blurEnabled=true

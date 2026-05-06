@@ -11,5 +11,9 @@
             }
         ]
     },
-    "X-Plasma-FallbackTheme": "breeze-dark"
+    "X-Plasma-FallbackTheme": "breeze-dark",
+    "X-Plasma-API": "5.0",
+    "theme": {
+        "translucent": true
+    }
 }

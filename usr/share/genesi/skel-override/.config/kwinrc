@@ -12,6 +12,8 @@ theme=org.kde.breeze
 
 [Plugins]
 blurEnabled=true
+translucencyEnabled=true
+
 contrastEnabled=true
 kwin4_effect_translucencyEnabled=true
 slideEnabled=true

@@ -118,16 +118,16 @@ activityId=
 formfactor=2
 immutability=1
 lastScreen=0
-location=4
+location=3
 plugin=org.kde.panel
 panelOpacity=1
-panelLengthMode=1
+panelLengthMode=0
 
 [Containments][2][General]
-AppletOrder=40;4;7;9;10
-floating=1
-panelAlignment=1
-thickness=56
+AppletOrder=40;4;9;7
+floating=0
+panelAlignment=0
+thickness=32
 
 [Containments][2][Applets][40]
 immutability=1
@@ -154,16 +154,12 @@ plugin=org.kde.plasma.systemtray
 PreloadWeight=100
 SystrayContainmentId=8
 
-[Containments][2][Applets][10]
-immutability=1
-plugin=org.kde.plasma.showdesktop
-
 [Containments][8]
 activityId=
 formfactor=2
 immutability=1
 lastScreen=0
-location=4
+location=3
 plugin=org.kde.plasma.private.systemtray
 
 [Containments][8][General]
@@ -180,16 +176,16 @@ activityId=
 formfactor=2
 immutability=1
 lastScreen=0
-location=3
+location=4
 plugin=org.kde.panel
 panelOpacity=1
-panelLengthMode=0
+panelLengthMode=1
 
 [Containments][3][General]
 AppletOrder=30;5;31
-floating=0
-panelAlignment=0
-thickness=32
+floating=1
+panelAlignment=1
+thickness=56
 
 [Containments][3][Applets][30]
 immutability=1

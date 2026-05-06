@@ -124,17 +124,10 @@ panelOpacity=2
 panelLengthMode=0
 
 [Containments][2][General]
-AppletOrder=30;40;4;9;6;7;10
+AppletOrder=40;4;9;6;7;10
 floating=0
 panelAlignment=0
 thickness=32
-
-[Containments][2][Applets][30]
-immutability=1
-plugin=org.kde.plasma.kicker
-
-[Containments][2][Applets][30][Configuration][General]
-icon=/usr/share/pixmaps/genesi-logo.png
 
 [Containments][2][Applets][40]
 immutability=1
@@ -197,10 +190,17 @@ panelOpacity=2
 panelLengthMode=1
 
 [Containments][3][General]
-AppletOrder=5;31
+AppletOrder=30;5;31
 floating=1
 panelAlignment=1
 thickness=56
+
+[Containments][3][Applets][30]
+immutability=1
+plugin=org.kde.plasma.kicker
+
+[Containments][3][Applets][30][Configuration][General]
+icon=/usr/share/pixmaps/genesi-logo.png
 
 [Containments][3][Applets][5]
 immutability=1

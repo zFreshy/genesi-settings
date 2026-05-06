@@ -1,3 +1,8 @@
+var p = panels();
+for (var i = 0; i < p.length; i++) {
+    p[i].remove();
+}
+
 var topPanel = new Panel("org.kde.panel");
 topPanel.location = "top";
 topPanel.height = 32;

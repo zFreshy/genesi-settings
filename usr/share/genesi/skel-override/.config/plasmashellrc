@@ -1,2 +1,5 @@
 [PlasmaViews][Panel 2][Defaults]
-thickness=50
+thickness=32
+
+[PlasmaViews][Panel 3][Defaults]
+thickness=56

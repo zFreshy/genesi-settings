@@ -124,7 +124,7 @@ panelOpacity=2
 panelLengthMode=0
 
 [Containments][2][General]
-AppletOrder=40;4;9;6;7;10
+AppletOrder=40;4;7;9;10
 floating=0
 panelAlignment=0
 thickness=32
@@ -145,10 +145,6 @@ plugin=org.kde.plasma.digitalclock
 dateFormat=isoDate
 use24hFormat=2
 showDate=true
-
-[Containments][2][Applets][6]
-immutability=1
-plugin=org.kde.plasma.panelspacer
 
 [Containments][2][Applets][7]
 immutability=1

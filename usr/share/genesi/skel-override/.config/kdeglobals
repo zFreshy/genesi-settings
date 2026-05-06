@@ -93,6 +93,9 @@ ColorScheme=Genesi
 Name=Genesi
 shadeSortColumn=true
 
+[Icons]
+Theme=Tela-circle-green-dark
+
 [KDE]
 widgetStyle=Breeze
 contrast=4

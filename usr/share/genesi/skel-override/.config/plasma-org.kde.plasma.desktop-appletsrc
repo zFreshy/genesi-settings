@@ -121,13 +121,13 @@ lastScreen=0
 location=4
 plugin=org.kde.panel
 panelOpacity=1
-panelLengthMode=0
+panelLengthMode=1
 
 [Containments][2][General]
 AppletOrder=40;4;7;9;10
-floating=0
-panelAlignment=0
-thickness=32
+floating=1
+panelAlignment=1
+thickness=56
 
 [Containments][2][Applets][40]
 immutability=1
@@ -183,13 +183,13 @@ lastScreen=0
 location=3
 plugin=org.kde.panel
 panelOpacity=1
-panelLengthMode=1
+panelLengthMode=0
 
 [Containments][3][General]
 AppletOrder=30;5;31
-floating=1
-panelAlignment=1
-thickness=56
+floating=0
+panelAlignment=0
+thickness=32
 
 [Containments][3][Applets][30]
 immutability=1

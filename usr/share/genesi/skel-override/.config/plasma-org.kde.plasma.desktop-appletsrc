@@ -82,7 +82,10 @@ height=150
 
 [Containments][1][Applets][25]
 immutability=1
-plugin=org.kde.plasma.diskquota
+plugin=org.kde.plasma.systemmonitor.diskusage
+
+[Containments][1][Applets][25][Configuration]
+PreloadWeight=60
 
 [Containments][1][Applets][25][Geometry]
 x=1400

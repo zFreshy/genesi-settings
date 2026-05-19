@@ -1,4 +1,10 @@
 [General]
 translucent_windows=true
 blur_translucent=true
-reduce_window_opacity=15
+blur_only_active_window=false
+reduce_window_opacity=22
+reduce_menu_opacity=18
+composite=true
+popup_blurring=true
+menu_blur_radius=20
+tooltip_blur_radius=20

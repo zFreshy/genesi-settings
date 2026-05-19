@@ -12,17 +12,28 @@ theme=Breeze
 
 [Plugins]
 blurEnabled=true
+contrastEnabled=true
 translucencyEnabled=true
 forceblurEnabled=true
 kwin4_effect_translucencyEnabled=true
+slidingPopupsEnabled=true
+sheetEnabled=true
+kwin4_effect_dimscreenEnabled=true
+kwin4_effect_squashEnabled=true
 
 [Effect-Blur]
-BlurStrength=12
-NoiseStrength=3
+BlurStrength=15
+NoiseStrength=0
 
 [Effect-Translucency]
-ActiveOpacity=85
-InactiveOpacity=85
+Decoration=1
+Dialogs=92
+DialogsInactive=88
+InMoveResize=88
+InactiveOpacity=88
+MenuOpacity=92
+MoveResize=2
+ActiveOpacity=92
 
 [Compositing]
 Backend=OpenGL

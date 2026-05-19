@@ -7,8 +7,8 @@ BorderSize=Normal
 BorderSizeAuto=false
 ButtonsOnLeft=XIA
 ButtonsOnRight=
-library=org.kde.kdecoration3
-theme=Breeze
+library=org.kde.klassy
+theme=Klassy
 
 [Plugins]
 blurEnabled=true

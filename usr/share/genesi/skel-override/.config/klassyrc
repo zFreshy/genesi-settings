@@ -1,27 +1,22 @@
-[Common]
-ActiveTitlebarOpacity=92
-InactiveTitlebarOpacity=88
+[Global]
+RefreshedConfig=6.5.3
+
+[TitleBarOpacity]
+ActiveTitleBarOpacity=50
+InactiveTitleBarOpacity=30
+OpaqueMaximizedTitleBars=false
+OverrideActiveTitleBarOpacity=true
+OverrideInactiveTitleBarOpacity=true
 
 [Windeco]
-CornerRadius=16
-ScaleBackgroundPercent=100
-DrawBackgroundGradient=false
-DrawTitleBarSeparator=false
-OutlineIntensity=OutlineOff
-DrawBorderOnMaximizedWindows=false
-BlurTransparentWindows=true
-OpaqueMaximizedTitlebars=false
-ColorizeThinWindowOutlineWithButton=false
+MatchTitleBarToApplicationColor=true
+WindowCornerRadius=14
 
-[ButtonBehaviour]
-ButtonStateChecked=true
-ButtonStateHovered=true
-ButtonStateNormal=true
-
-[ButtonColors]
-CloseButtonIconColor=White
-ButtonIconColors=TitleBarText
-ButtonBackgroundColors=Accent
+[WindowOutlineStyle]
+WindowOutlineContrastOpacityActive=50
+WindowOutlineOverlap=false
+WindowOutlineStyleActive=WindowOutlineContrast
+WindowOutlineStyleInactive=WindowOutlineContrast
 
 [Style]
 SystemIconTheme=Tela-circle-green-dark

@@ -9,7 +9,7 @@ bottomDock.height = 50;
 bottomDock.alignment = "center";
 bottomDock.floating = true;
 
-var launcher = bottomDock.addWidget("org.kde.plasma.kicker");
+var launcher = bottomDock.addWidget("org.kde.plasma.kickoff");
 launcher.currentConfigGroup = ["General"];
 launcher.writeConfig("icon", "/usr/share/pixmaps/genesi-logo.png");
 

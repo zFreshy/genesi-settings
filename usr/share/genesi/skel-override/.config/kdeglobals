@@ -19,8 +19,8 @@ IntensityAmount=0
 IntensityEffect=0
 
 [Colors:Button]
-BackgroundAlternate=13,32,48
-BackgroundNormal=10,24,34
+BackgroundAlternate=18,45,64,235
+BackgroundNormal=13,32,48,235
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
 ForegroundActive=255,255,255
@@ -33,8 +33,8 @@ ForegroundPositive=34,197,94
 ForegroundVisited=22,163,74
 
 [Colors:Complementary]
-BackgroundAlternate=10,26,38,180
-BackgroundNormal=8,22,32,180
+BackgroundAlternate=18,45,64,230
+BackgroundNormal=13,32,48,230
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
 ForegroundActive=255,255,255
@@ -51,18 +51,18 @@ BackgroundAlternate=34,197,94
 BackgroundNormal=74,222,128
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
-ForegroundActive=10,24,34
+ForegroundActive=13,32,48
 ForegroundInactive=159,181,179
 ForegroundLink=255,255,255
 ForegroundNegative=229,62,62
 ForegroundNeutral=234,179,8
-ForegroundNormal=10,24,34
+ForegroundNormal=13,32,48
 ForegroundPositive=22,163,74
 ForegroundVisited=255,255,255
 
 [Colors:Tooltip]
-BackgroundAlternate=10,26,38,180
-BackgroundNormal=8,22,32,180
+BackgroundAlternate=18,45,64,235
+BackgroundNormal=13,32,48,235
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
 ForegroundActive=255,255,255
@@ -75,8 +75,8 @@ ForegroundPositive=34,197,94
 ForegroundVisited=22,163,74
 
 [Colors:View]
-BackgroundAlternate=10,24,34,200
-BackgroundNormal=5,14,22,200
+BackgroundAlternate=18,45,64,230
+BackgroundNormal=13,32,48,230
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
 ForegroundActive=255,255,255
@@ -89,8 +89,8 @@ ForegroundPositive=34,197,94
 ForegroundVisited=22,163,74
 
 [Colors:Window]
-BackgroundAlternate=10,24,34,200
-BackgroundNormal=5,14,22,200
+BackgroundAlternate=18,45,64,230
+BackgroundNormal=13,32,48,230
 DecorationFocus=74,222,128
 DecorationHover=94,234,212
 ForegroundActive=255,255,255
@@ -119,9 +119,9 @@ frameContrast=0.2
 widgetStyle=Darkly
 
 [WM]
-activeBackground=10,24,34,200
-activeBlend=10,24,34,200
+activeBackground=13,32,48,230
+activeBlend=13,32,48,230
 activeForeground=230,241,238
-inactiveBackground=8,22,32,180
-inactiveBlend=8,22,32,180
+inactiveBackground=18,45,64,210
+inactiveBlend=18,45,64,210
 inactiveForeground=159,181,179

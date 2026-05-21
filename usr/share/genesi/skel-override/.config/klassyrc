@@ -32,7 +32,7 @@ OverrideInactiveTitleBarOpacity=true
 
 [Windeco]
 ButtonIconStyle=StyleFluent
-ButtonShape=ShapeFullHeightRoundedRectangle
+ButtonShape=ShapeIntegratedRoundedRectangle
 MatchTitleBarToApplicationColor=true
 WindowCornerRadius=14
 

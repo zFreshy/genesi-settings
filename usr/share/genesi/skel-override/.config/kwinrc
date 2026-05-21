@@ -2,38 +2,41 @@
 BorderlessMaximizedWindows=false
 RollOverDesktops=true
 
+[Xwayland]
+Scale=1
+
 [org.kde.kdecoration2]
 BorderSize=Normal
 BorderSizeAuto=false
-ButtonsOnLeft=XIA
-ButtonsOnRight=
+ButtonsOnLeft=MFS
+ButtonsOnRight=HIAX
 library=org.kde.klassy
 theme=Klassy
 
 [Plugins]
 blurEnabled=true
 contrastEnabled=true
-translucencyEnabled=true
 forceblurEnabled=true
 kwin4_effect_translucencyEnabled=true
 slidingPopupsEnabled=true
 sheetEnabled=true
+translucencyEnabled=true
 kwin4_effect_dimscreenEnabled=true
 kwin4_effect_squashEnabled=true
 
 [Effect-Blur]
 BlurStrength=15
-NoiseStrength=0
+NoiseStrength=5
 
 [Effect-Translucency]
 Decoration=1
 Dialogs=92
 DialogsInactive=88
 InMoveResize=88
-InactiveOpacity=88
+InactiveOpacity=85
 MenuOpacity=92
 MoveResize=2
-ActiveOpacity=92
+ActiveOpacity=85
 
 [Compositing]
 Backend=OpenGL

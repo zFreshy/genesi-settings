@@ -32,23 +32,37 @@ ForegroundNormal=252,252,252
 ForegroundPositive=17,209,22
 ForegroundVisited=15,110,86
 
+[Colors:Complementary]
+BackgroundAlternate=4,52,44,180
+BackgroundNormal=4,52,44,180
+DecorationFocus=29,158,117
+DecorationHover=29,158,117
+ForegroundActive=255,255,255
+ForegroundInactive=161,169,177
+ForegroundLink=29,158,117
+ForegroundNegative=237,21,21
+ForegroundNeutral=255,221,0
+ForegroundNormal=252,252,252
+ForegroundPositive=17,209,22
+ForegroundVisited=15,110,86
+
 [Colors:Selection]
 BackgroundAlternate=15,110,86
 BackgroundNormal=29,158,117
 DecorationFocus=29,158,117
 DecorationHover=29,158,117
 ForegroundActive=255,255,255
-ForegroundInactive=161,169,177
+ForegroundInactive=176,55,69
 ForegroundLink=253,188,75
-ForegroundNegative=176,55,69
-ForegroundNeutral=198,92,0
+ForegroundNegative=198,92,0
+ForegroundNeutral=255,255,255
 ForegroundNormal=255,255,255
 ForegroundPositive=23,104,57
 ForegroundVisited=155,89,182
 
 [Colors:Tooltip]
-BackgroundAlternate=44,44,42
-BackgroundNormal=44,44,42
+BackgroundAlternate=4,52,44,180
+BackgroundNormal=4,52,44,180
 DecorationFocus=29,158,117
 DecorationHover=29,158,117
 ForegroundActive=255,255,255
@@ -62,7 +76,7 @@ ForegroundVisited=15,110,86
 
 [Colors:View]
 BackgroundAlternate=15,110,86
-BackgroundNormal=4,52,44
+BackgroundNormal=4,52,44,200
 DecorationFocus=29,158,117
 DecorationHover=29,158,117
 ForegroundActive=255,255,255
@@ -76,7 +90,7 @@ ForegroundVisited=15,110,86
 
 [Colors:Window]
 BackgroundAlternate=15,110,86
-BackgroundNormal=4,52,44
+BackgroundNormal=4,52,44,200
 DecorationFocus=29,158,117
 DecorationHover=29,158,117
 ForegroundActive=255,255,255
@@ -89,21 +103,25 @@ ForegroundPositive=17,209,22
 ForegroundVisited=15,110,86
 
 [General]
+AccentColor=74,222,128
 ColorScheme=Genesi
 Name=Genesi
+accentColorFromWallpaper=false
 shadeSortColumn=true
 
 [Icons]
 Theme=Tela-circle-green-dark
 
 [KDE]
-widgetStyle=Breeze
-contrast=4
+SingleClick=false
+contrast=7
+frameContrast=0.2
+widgetStyle=Darkly
 
 [WM]
-activeBackground=10,15,13
-activeBlend=252,252,252
+activeBackground=4,52,44,200
+activeBlend=4,52,44,200
 activeForeground=252,252,252
-inactiveBackground=10,15,13
-inactiveBlend=161,169,177
-inactiveForeground=161,169,177
+inactiveBackground=4,52,44,200
+inactiveBlend=4,52,44,200
+inactiveForeground=252,252,252

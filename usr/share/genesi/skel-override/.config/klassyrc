@@ -1,14 +1,38 @@
+[ButtonBehaviour]
+ShowBackgroundOnPressActive=false
+ShowBackgroundOnPressInactive=false
+ShowCloseBackgroundOnPressActive=false
+ShowCloseBackgroundOnPressInactive=false
+ShowCloseOutlineOnHoverActive=false
+ShowCloseOutlineOnHoverInactive=false
+ShowCloseOutlineOnPressActive=false
+ShowCloseOutlineOnPressInactive=false
+ShowOutlineOnHoverActive=false
+ShowOutlineOnHoverInactive=false
+ShowOutlineOnPressActive=false
+ShowOutlineOnPressInactive=false
+VaryColorBackgroundActive=No
+VaryColorBackgroundInactive=No
+VaryColorCloseBackgroundActive=No
+VaryColorCloseBackgroundInactive=No
+VaryColorCloseOutlineActive=No
+VaryColorCloseOutlineInactive=No
+VaryColorOutlineActive=No
+VaryColorOutlineInactive=No
+
 [Global]
 RefreshedConfig=6.5.3
 
 [TitleBarOpacity]
-ActiveTitleBarOpacity=50
-InactiveTitleBarOpacity=30
+ActiveTitleBarOpacity=90
+InactiveTitleBarOpacity=80
 OpaqueMaximizedTitleBars=false
 OverrideActiveTitleBarOpacity=true
 OverrideInactiveTitleBarOpacity=true
 
 [Windeco]
+ButtonIconStyle=StyleFluent
+ButtonShape=ShapeFullHeightRoundedRectangle
 MatchTitleBarToApplicationColor=true
 WindowCornerRadius=14
 

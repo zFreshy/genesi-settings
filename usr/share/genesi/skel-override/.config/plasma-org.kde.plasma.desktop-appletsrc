@@ -44,10 +44,15 @@ thickness=50
 
 [Containments][2][Applets][30]
 immutability=1
-plugin=org.kde.plasma.kicker
+plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][30][Configuration][General]
+favoritesPortedToKAstats=true
 icon=/usr/share/pixmaps/genesi-logo.png
+
+[Containments][2][Applets][30][Configuration]
+popupHeight=509
+popupWidth=631
 
 [Containments][2][Applets][4]
 immutability=1
@@ -58,7 +63,11 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
+highlightWindows=true
 iconSpacing=2
+iconsOnly=true
+indicatorPlacement=BarsLine
+indicators=Bars
 launchers=applications:org.kde.dolphin.desktop,preferred://browser,applications:org.kde.konsole.desktop,applications:systemsettings.desktop
 
 [Containments][2][Applets][6]

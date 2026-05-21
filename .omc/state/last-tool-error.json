@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"rm -f D:/Desenvolvimento/Genesi/.git/index.lock && cd D:/Desenvolvimento/Genesi && git add genesi-settings-full && git commit -m \\\"$(cat <<'EOF'\\nfix: bump genesi-settings - clean default ...",
+  "error": "Exit code 1\nrm: cannot remove 'D:/Desenvolvimento/Genesi/.git/index.lock': Device or resource busy",
+  "timestamp": "2026-05-19T05:16:17.522Z",
+  "retry_count": 2
+}

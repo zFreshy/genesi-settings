@@ -25,8 +25,8 @@ kwin4_effect_dimscreenEnabled=true
 kwin4_effect_squashEnabled=true
 
 [Effect-Blur]
-BlurStrength=15
-NoiseStrength=5
+BlurStrength=9
+NoiseStrength=3
 
 [Effect-Translucency]
 Decoration=1

@@ -33,14 +33,17 @@ OverrideInactiveTitleBarOpacity=true
 [Windeco]
 ButtonIconStyle=StyleFluent
 ButtonShape=ShapeIntegratedRoundedRectangle
+DrawTitleBarSeparator=false
 MatchTitleBarToApplicationColor=true
 WindowCornerRadius=14
 
 [WindowOutlineStyle]
 WindowOutlineContrastOpacityActive=50
+WindowOutlineCustomColorActive=74,222,128
+WindowOutlineCustomColorInactive=74,222,128
 WindowOutlineOverlap=false
-WindowOutlineStyleActive=WindowOutlineContrast
-WindowOutlineStyleInactive=WindowOutlineContrast
+WindowOutlineStyleActive=WindowOutlineCustomColor
+WindowOutlineStyleInactive=WindowOutlineCustomColor
 
 [Style]
 SystemIconTheme=Tela-circle-green-dark

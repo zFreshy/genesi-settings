@@ -34,7 +34,7 @@ OverrideInactiveTitleBarOpacity=true
 ButtonIconStyle=StyleFluent
 ButtonShape=ShapeIntegratedRoundedRectangle
 DrawTitleBarSeparator=false
-MatchTitleBarToApplicationColor=true
+MatchTitleBarToApplicationColor=false
 WindowCornerRadius=14
 
 [WindowOutlineStyle]

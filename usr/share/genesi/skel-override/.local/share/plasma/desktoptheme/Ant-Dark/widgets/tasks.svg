@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  Genesi OS - Custom tasks.svg override for Ant-Dark Plasma theme.
+  Reproduces the Genesi design reference (the "terminal card" mock):
+    - Active/focused task: vertical glow gradient (transparent at the top,
+      saturated Genesi green at the bottom) inside a rounded card.
+    - Bright green underline bar bottom-centered for the open-window cue.
+    - Hover: subtle uniform green tint, no underline.
+    - Minimized: same gradient as focus but without the bright underline.
+  Plasma FrameSvg requires 9 elements per state (topleft, top, topright,
+  left, center, right, bottomleft, bottom, bottomright) laid out in
+  horizontal bands inside the viewBox so Plasma can stretch the frame
+  as a 9-grid. Most edge/corner cells are intentionally zero-fill;
+  only `center` and `bottom` draw anything visible.
+
+  Colors come from kdeglobals (the Genesi palette):
+    AccentColor=74,222,128 -> #4ade80 -> the bright accent green
+    Lighter mix used for the glow fade to keep low-end GPUs happy.
+-->
+<svg xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 250 64" width="250" height="64">
+
+  <defs>
+    <!-- Vertical glow: transparent top -> saturated bottom.
+         This is what gives the "card lit from below" look in the
+         Genesi design mock. -->
+    <linearGradient id="genesi-glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#4ade80" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#4ade80" stop-opacity="0.10"/>
+      <stop offset="1"   stop-color="#4ade80" stop-opacity="0.32"/>
+    </linearGradient>
+
+    <!-- Softer version of the same gradient for minimized windows -
+         still shows it's open, but less assertive than focused. -->
+    <linearGradient id="genesi-glow-dim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#4ade80" stop-opacity="0"/>
+      <stop offset="0.55" stop-color="#4ade80" stop-opacity="0.05"/>
+      <stop offset="1"   stop-color="#4ade80" stop-opacity="0.18"/>
+    </linearGradient>
+
+    <!-- Horizontal fade for the underline bar so the edges aren't hard
+         pixels - matches the "soft glow" energy of the gradient above. -->
+    <linearGradient id="green-underline" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0"   stop-color="#4ade80" stop-opacity="0"/>
+      <stop offset="0.5" stop-color="#4ade80" stop-opacity="1"/>
+      <stop offset="1"   stop-color="#4ade80" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Hover: gentle solid tint, no gradient. -->
+    <linearGradient id="genesi-hover" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4ade80" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#4ade80" stop-opacity="0.08"/>
+    </linearGradient>
+
+    <!-- Attention: amber pulse so it doesn't blend into the green
+         steady-state look. -->
+    <linearGradient id="genesi-attention" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0"   stop-color="#fbbf24" stop-opacity="0"/>
+      <stop offset="1"   stop-color="#fbbf24" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ========== focus (active/focused task) ========== -->
+  <!-- Band: x = 0..40 -->
+  <rect id="focus-topleft"     x="0"  y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="focus-top"         x="4"  y="0"  width="32" height="2"  fill="none"/>
+  <rect id="focus-topright"    x="36" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="focus-left"        x="0"  y="4"  width="2"  height="52" fill="none"/>
+  <rect id="focus-center"      x="2"  y="2"  width="36" height="56" rx="10" ry="10"
+        fill="url(#genesi-glow)"/>
+  <rect id="focus-right"       x="38" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="focus-bottomleft"  x="0"  y="56" width="4"  height="4"  fill="none"/>
+  <rect id="focus-bottom"      x="10" y="59" width="20" height="2"  rx="1" fill="url(#green-underline)"/>
+  <rect id="focus-bottomright" x="36" y="56" width="4"  height="4"  fill="none"/>
+
+  <!-- ========== hover (mouse over task) ========== -->
+  <!-- Band: x = 50..90 -->
+  <rect id="hover-topleft"     x="50" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="hover-top"         x="54" y="0"  width="32" height="2"  fill="none"/>
+  <rect id="hover-topright"    x="86" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="hover-left"        x="50" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="hover-center"      x="52" y="2"  width="36" height="56" rx="10" ry="10"
+        fill="url(#genesi-hover)"/>
+  <rect id="hover-right"       x="88" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="hover-bottomleft"  x="50" y="56" width="4"  height="4"  fill="none"/>
+  <rect id="hover-bottom"      x="54" y="60" width="32" height="2"  fill="none"/>
+  <rect id="hover-bottomright" x="86" y="56" width="4"  height="4"  fill="none"/>
+
+  <!-- ========== minimized (open but not focused) ========== -->
+  <!-- Band: x = 100..140 -->
+  <rect id="minimized-topleft"     x="100" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="minimized-top"         x="104" y="0"  width="32" height="2"  fill="none"/>
+  <rect id="minimized-topright"    x="136" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="minimized-left"        x="100" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="minimized-center"      x="102" y="2"  width="36" height="56" rx="10" ry="10"
+        fill="url(#genesi-glow-dim)"/>
+  <rect id="minimized-right"       x="138" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="minimized-bottomleft"  x="100" y="56" width="4"  height="4"  fill="none"/>
+  <rect id="minimized-bottom"      x="104" y="60" width="32" height="2"  fill="none"/>
+  <rect id="minimized-bottomright" x="136" y="56" width="4"  height="4"  fill="none"/>
+
+  <!-- ========== attention (window needs user attention) ========== -->
+  <!-- Band: x = 150..190 -->
+  <rect id="attention-topleft"     x="150" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="attention-top"         x="154" y="0"  width="32" height="2"  fill="none"/>
+  <rect id="attention-topright"    x="186" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="attention-left"        x="150" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="attention-center"      x="152" y="2"  width="36" height="56" rx="10" ry="10"
+        fill="url(#genesi-attention)"/>
+  <rect id="attention-right"       x="188" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="attention-bottomleft"  x="150" y="56" width="4"  height="4"  fill="none"/>
+  <rect id="attention-bottom"      x="160" y="59" width="20" height="2"  rx="1" fill="#fbbf24"/>
+  <rect id="attention-bottomright" x="186" y="56" width="4"  height="4"  fill="none"/>
+
+  <!-- ========== normal (no state - icon is launchable but not running) ========== -->
+  <!-- Band: x = 200..240. All transparent so it's effectively invisible. -->
+  <rect id="normal-topleft"     x="200" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="normal-top"         x="204" y="0"  width="32" height="2"  fill="none"/>
+  <rect id="normal-topright"    x="236" y="0"  width="4"  height="4"  fill="none"/>
+  <rect id="normal-left"        x="200" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="normal-center"      x="202" y="2"  width="36" height="56" fill="none"/>
+  <rect id="normal-right"       x="238" y="4"  width="2"  height="52" fill="none"/>
+  <rect id="normal-bottomleft"  x="200" y="56" width="4"  height="4"  fill="none"/>
+  <rect id="normal-bottom"      x="204" y="60" width="32" height="2"  fill="none"/>
+  <rect id="normal-bottomright" x="236" y="56" width="4"  height="4"  fill="none"/>
+</svg>

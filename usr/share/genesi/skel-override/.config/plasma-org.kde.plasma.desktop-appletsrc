@@ -38,6 +38,7 @@ panelSize=100
 
 [Containments][2][General]
 AppletOrder=30;4;5;6;31;7;9;10
+adaptiveOpacityEnabled=false
 floating=1
 panelAlignment=1
 thickness=50

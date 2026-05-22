@@ -34,16 +34,17 @@ OverrideInactiveTitleBarOpacity=true
 ButtonIconStyle=StyleFluent
 ButtonShape=ShapeIntegratedRoundedRectangle
 DrawTitleBarSeparator=false
-MatchTitleBarToApplicationColor=false
+MatchTitleBarToApplicationColor=true
 WindowCornerRadius=14
 
 [WindowOutlineStyle]
-WindowOutlineContrastOpacityActive=50
-WindowOutlineCustomColorActive=74,222,128
-WindowOutlineCustomColorInactive=74,222,128
-WindowOutlineOverlap=false
+WindowOutlineContrastOpacityActive=100
+WindowOutlineCustomColorActive=0,112,88
+WindowOutlineCustomColorInactive=0,112,88
+WindowOutlineOverlap=true
 WindowOutlineStyleActive=WindowOutlineCustomColor
 WindowOutlineStyleInactive=WindowOutlineCustomColor
+WindowOutlineThickness=1.20
 
 [Style]
 SystemIconTheme=Tela-circle-green-dark

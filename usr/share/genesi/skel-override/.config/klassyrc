@@ -24,8 +24,8 @@ VaryColorOutlineInactive=No
 RefreshedConfig=6.5.3
 
 [TitleBarOpacity]
-ActiveTitleBarOpacity=90
-InactiveTitleBarOpacity=80
+ActiveTitleBarOpacity=70
+InactiveTitleBarOpacity=70
 OpaqueMaximizedTitleBars=false
 OverrideActiveTitleBarOpacity=true
 OverrideInactiveTitleBarOpacity=true

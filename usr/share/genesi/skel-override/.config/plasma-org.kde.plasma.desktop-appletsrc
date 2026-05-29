@@ -52,8 +52,8 @@ favoritesPortedToKAstats=true
 icon=/usr/share/pixmaps/genesi-logo.png
 
 [Containments][2][Applets][30][Configuration]
-popupHeight=509
-popupWidth=631
+popupHeight=300
+popupWidth=450
 
 [Containments][2][Applets][4]
 immutability=1

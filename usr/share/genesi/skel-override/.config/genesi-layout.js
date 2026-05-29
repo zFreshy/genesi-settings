@@ -13,16 +13,16 @@ var launcher = bottomDock.addWidget("org.kde.plasma.kickoff");
 launcher.currentConfigGroup = ["General"];
 launcher.writeConfig("icon", "/usr/share/pixmaps/genesi-logo.png");
 // Lock the popup size so the menu opens at its final dimensions instead
-// of starting at the "natural content size" and visibly growing upward
-// until it hits the limit (reproduced 2026-05-27). popupHeight/popupWidth
-// live at the Configuration root, not under [General], so reset the
-// group before writing. Same numbers shipped statically in
-// plasma-org.kde.plasma.desktop-appletsrc - duplicated here because the
-// script destroys all panels above and rebuilds, so the static file's
-// values for the previous applet IDs are no longer applied.
+// of starting at the "natural content size" and visibly growing upward.
+// popupHeight/popupWidth live at the Configuration root, not under
+// [General], so reset the group before writing. Plasma 6 treats these
+// as size HINTS - the rendered popup ends up larger (it expands to fit
+// 8 category items + favorites grid + header + footer), so the values
+// look smaller than the actual on-screen size. User-verified 2026-05-29:
+// 300x450 hints produce a comfortable ~560x690 rendered popup.
 launcher.currentConfigGroup = [];
-launcher.writeConfig("popupHeight", 509);
-launcher.writeConfig("popupWidth", 631);
+launcher.writeConfig("popupHeight", 300);
+launcher.writeConfig("popupWidth", 450);
 launcher.reloadConfig();
 
 bottomDock.addWidget("org.kde.plasma.panelspacer");

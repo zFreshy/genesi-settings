@@ -18,7 +18,13 @@ blurEnabled=true
 contrastEnabled=true
 forceblurEnabled=true
 kwin4_effect_translucencyEnabled=true
-slidingPopupsEnabled=true
+# slidingPopups makes Kickoff visibly "grow" from nothing to its final
+# size on every open - user reported this as the "fica crescendo" bug
+# (2026-05-29). Disabling the effect makes popups appear instantly at
+# their target dimensions while keeping everything else (blur, contrast,
+# translucency, sheet, dim, squash). Verified live: turning this off
+# eliminated the grow effect on Kickoff without touching anything else.
+slidingPopupsEnabled=false
 sheetEnabled=true
 translucencyEnabled=true
 kwin4_effect_dimscreenEnabled=true

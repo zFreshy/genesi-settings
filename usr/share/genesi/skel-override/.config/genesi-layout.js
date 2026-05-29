@@ -30,7 +30,21 @@ bottomDock.addWidget("org.kde.plasma.panelspacer");
 var tasks = bottomDock.addWidget("org.kde.plasma.icontasks");
 tasks.currentConfigGroup = ["General"];
 tasks.writeConfig("iconSpacing", "2");
-tasks.writeConfig("launchers", "applications:org.kde.dolphin.desktop,preferred://browser,applications:org.kde.konsole.desktop,applications:systemsettings.desktop");
+// IMPORTANT: pass launchers as a JS array, NOT a comma-separated string.
+// Reproduced 2026-05-29: writing a string left the panel with a single "?"
+// icon tooltipped "browser,applications:org.kde.konsole.d..." - Plasma 6
+// treated the entire string as ONE URL instead of splitting on commas.
+// Plasma scripting's writeConfig joins arrays with commas correctly into
+// the underlying KConfig string-list format.
+// Also swapped preferred://browser -> applications:firefox.desktop because
+// preferred:// adds another resolution layer that fails silently in the
+// live ISO (no default browser registered yet via xdg-mime).
+tasks.writeConfig("launchers", [
+    "applications:org.kde.dolphin.desktop",
+    "applications:firefox.desktop",
+    "applications:org.kde.konsole.desktop",
+    "applications:systemsettings.desktop"
+]);
 
 bottomDock.addWidget("org.kde.plasma.panelspacer");
 

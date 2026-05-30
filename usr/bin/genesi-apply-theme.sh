@@ -32,6 +32,21 @@ else
     kwin_x11 --replace &
 fi
 
+# Restart plasmashell so it re-reads the appletsrc with the new Kickoff
+# popupHeight/popupWidth that the JS just wrote. Without this, plasmashell
+# keeps its in-memory cached size from when the panel was first built
+# (BEFORE the JS overrode the dimensions), and the Kickoff menu renders
+# at the Plasma default size instead of our 300x450 hint. Reproduced
+# 2026-05-30: file had popupHeight=300 but menu still rendered oversize
+# until a manual `kquitapp6 plasmashell && kstart plasmashell` was run.
+# `plasmashell --replace` is the atomic equivalent that ships in a single
+# command. Brief panel flicker (~1-2s) is acceptable because this entire
+# script is a one-shot autostart that removes itself below.
+sleep 1
+plasmashell --replace &
+disown
+sleep 2
+
 # Disable this autostart after first run
 rm -f ~/.config/autostart/genesi-apply-theme.desktop
 

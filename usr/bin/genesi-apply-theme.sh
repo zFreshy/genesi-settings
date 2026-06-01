@@ -22,8 +22,21 @@ if [ -d "/usr/share/icons/Tela-circle-green-dark" ]; then
     gtk-update-icon-cache -f -t /usr/share/icons/Tela-circle-green-dark 2>/dev/null || true
 fi
 
-# Reset layout using KDE Scripting Engine
-qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(cat /etc/skel/.config/genesi-layout.js)" 2>/dev/null || true
+# Reset layout using KDE Scripting Engine (builds the floating panel + Kickoff
+# sizing). Plasma 6 ships `qdbus6` and has NO `qdbus`, so the old hard-coded
+# `qdbus` call silently failed on installed systems and the panel never became
+# floating (reproduced 2026-06-01). Pick whichever binary exists, and read the
+# layout JS from the user's own config first, falling back to /etc/skel.
+_applied=0
+_qdbus="$(command -v qdbus6 || command -v qdbus || true)"
+_layout=""
+[ -f "$HOME/.config/genesi-layout.js" ] && _layout="$HOME/.config/genesi-layout.js"
+[ -z "$_layout" ] && [ -f /etc/skel/.config/genesi-layout.js ] && _layout="/etc/skel/.config/genesi-layout.js"
+if [ -n "$_qdbus" ] && [ -n "$_layout" ]; then
+    if "$_qdbus" org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(cat "$_layout")" 2>/dev/null; then
+        _applied=1
+    fi
+fi
 
 # Restart KWin to apply window decoration and effects
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
@@ -47,7 +60,11 @@ plasmashell --replace &
 disown
 sleep 2
 
-# Disable this autostart after first run
-rm -f ~/.config/autostart/genesi-apply-theme.desktop
+# Disable this autostart ONLY if the layout actually applied. If qdbus/qdbus6
+# wasn't available (old failure mode), keep the autostart so the next login
+# retries instead of silently self-destructing with nothing applied.
+if [ "${_applied:-0}" = 1 ]; then
+    rm -f ~/.config/autostart/genesi-apply-theme.desktop
+fi
 
 exit 0

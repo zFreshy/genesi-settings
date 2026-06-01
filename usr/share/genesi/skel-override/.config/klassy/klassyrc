@@ -34,13 +34,13 @@ OverrideInactiveTitleBarOpacity=true
 ButtonIconStyle=StyleFluent
 ButtonShape=ShapeIntegratedRoundedRectangle
 DrawTitleBarSeparator=false
-MatchTitleBarToApplicationColor=true
+MatchTitleBarToApplicationColor=false
 WindowCornerRadius=14
 
 [WindowOutlineStyle]
 WindowOutlineContrastOpacityActive=100
-WindowOutlineCustomColorActive=0,112,88
-WindowOutlineCustomColorInactive=0,112,88
+WindowOutlineCustomColorActive=13,32,48
+WindowOutlineCustomColorInactive=18,45,64
 WindowOutlineOverlap=true
 WindowOutlineStyleActive=WindowOutlineCustomColor
 WindowOutlineStyleInactive=WindowOutlineCustomColor

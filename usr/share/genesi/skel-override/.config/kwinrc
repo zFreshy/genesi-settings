@@ -34,6 +34,15 @@ kwin4_effect_squashEnabled=true
 BlurStrength=9
 NoiseStrength=3
 
+# Better Blur (forceblur) — the effect Genesi actually uses (forceblurEnabled=
+# true). Its config lives in the lowercase [Effect-blur] group. Without it the
+# effect defaults to Saturation=255 (max), which over-saturates the wallpaper
+# blurred behind translucent titlebars and made them look vivid green.
+[Effect-blur]
+BlurStrength=4
+NoiseStrength=0
+Saturation=127
+
 [Effect-Translucency]
 Decoration=1
 Dialogs=92

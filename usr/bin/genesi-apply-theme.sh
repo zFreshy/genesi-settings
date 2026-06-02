@@ -22,21 +22,18 @@ if [ -d "/usr/share/icons/Tela-circle-green-dark" ]; then
     gtk-update-icon-cache -f -t /usr/share/icons/Tela-circle-green-dark 2>/dev/null || true
 fi
 
-# Reset layout using KDE Scripting Engine (builds the floating panel + Kickoff
-# sizing). Plasma 6 ships `qdbus6` and has NO `qdbus`, so the old hard-coded
-# `qdbus` call silently failed on installed systems and the panel never became
-# floating (reproduced 2026-06-01). Pick whichever binary exists, and read the
-# layout JS from the user's own config first, falling back to /etc/skel.
-_applied=0
-_qdbus="$(command -v qdbus6 || command -v qdbus || true)"
-_layout=""
-[ -f "$HOME/.config/genesi-layout.js" ] && _layout="$HOME/.config/genesi-layout.js"
-[ -z "$_layout" ] && [ -f /etc/skel/.config/genesi-layout.js ] && _layout="/etc/skel/.config/genesi-layout.js"
-if [ -n "$_qdbus" ] && [ -n "$_layout" ]; then
-    if "$_qdbus" org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.evaluateScript "$(cat "$_layout")" 2>/dev/null; then
-        _applied=1
-    fi
-fi
+# NOTE: we deliberately do NOT run genesi-layout.js anymore.
+#
+# The skel ships a complete, working plasma-org.kde.plasma.desktop-appletsrc
+# (floating panel, sized Kickoff, the AI Mode launcher AND a fully-populated
+# system tray). genesi-layout.js used to `panels().remove()` and rebuild from
+# scratch, but a script-built systemtray never instantiates the notifications
+# applet -> org.freedesktop.Notifications is never registered -> every
+# notify-send hangs ~25s and silently fails (no update-available popup, no AI
+# Mode toast, kdeconnect "could not query capabilities"). The static appletsrc
+# carries `shownItems=org.kde.plasma.notifications`, so simply LOADING it gives
+# a working notification server. Rebuilding it was redundant and harmful.
+# Reproduced + verified on an installed VM 2026-06-02.
 
 # Restart KWin to apply window decoration and effects
 if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
@@ -45,26 +42,19 @@ else
     kwin_x11 --replace &
 fi
 
-# Restart plasmashell so it re-reads the appletsrc with the new Kickoff
-# popupHeight/popupWidth that the JS just wrote. Without this, plasmashell
-# keeps its in-memory cached size from when the panel was first built
-# (BEFORE the JS overrode the dimensions), and the Kickoff menu renders
-# at the Plasma default size instead of our 300x450 hint. Reproduced
-# 2026-05-30: file had popupHeight=300 but menu still rendered oversize
-# until a manual `kquitapp6 plasmashell && kstart plasmashell` was run.
-# `plasmashell --replace` is the atomic equivalent that ships in a single
-# command. Brief panel flicker (~1-2s) is acceptable because this entire
-# script is a one-shot autostart that removes itself below.
+# Restart plasmashell so the icon theme just written to kdeglobals takes effect
+# (plasma-changeicons/kwriteconfig don't repaint a running shell). The panel
+# layout + Kickoff sizing already come from the static appletsrc loaded at
+# login, so this is only a repaint. Brief panel flicker (~1-2s) is acceptable
+# because this is a one-shot autostart that removes itself below.
 sleep 1
 plasmashell --replace &
 disown
 sleep 2
 
-# Disable this autostart ONLY if the layout actually applied. If qdbus/qdbus6
-# wasn't available (old failure mode), keep the autostart so the next login
-# retries instead of silently self-destructing with nothing applied.
-if [ "${_applied:-0}" = 1 ]; then
-    rm -f ~/.config/autostart/genesi-apply-theme.desktop
-fi
+# One-shot: remove the autostart so this only runs on the very first login.
+# (There's no layout step to retry anymore — the static appletsrc is the
+# source of truth, and wallpaper/colorscheme/icons above are idempotent.)
+rm -f ~/.config/autostart/genesi-apply-theme.desktop
 
 exit 0

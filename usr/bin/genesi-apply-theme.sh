@@ -1,60 +1,60 @@
 #!/bin/bash
-# Genesi OS - Theme Applicator
-# Ensures all theme settings are applied correctly on first boot
+# Genesi OS - Theme Applicator (first-login safety net)
+#
+# The Genesi desktop config (wallpaper, color scheme, icon theme, window
+# decoration) is pre-seeded into the user's HOME from skel-override, so a
+# correctly-seeded login already paints Genesi on the FIRST frame:
+#   - kwinrc      -> Klassy decoration, blur, rounded corners (read at KWin start)
+#   - kdeglobals  -> ColorScheme=Genesi, Icons=Tela-circle-green-dark, Darkly
+#   - appletsrc   -> wallpaper = /usr/share/wallpapers/genesi/wallpaper.png
+#
+# This script is only a guarded fallback for the case where a setting didn't
+# take, and it is deliberately FLICKER-FREE. It NEVER restarts kwin or
+# plasmashell -- the old `kwin --replace` (compositor black-flash) and
+# `plasmashell --replace` (panel rebuild) were exactly the "2 piscadas" we want
+# gone. It applies any missing bits live and asks KWin to reload config in place.
 
-# Wait for Plasma to fully start
-sleep 5
+# Wait until plasmashell is actually up (no fixed-sleep race).
+for _ in $(seq 1 20); do
+    pgrep -x plasmashell >/dev/null 2>&1 && break
+    sleep 0.5
+done
 
-# Apply wallpaper using plasma-apply-wallpaperimage
-if command -v plasma-apply-wallpaperimage &>/dev/null; then
-    plasma-apply-wallpaperimage /usr/share/wallpapers/genesi/wallpaper.png 2>/dev/null || true
+# Pick a working qdbus (Plasma 6 ships qdbus6).
+QDBUS=""
+for q in qdbus6 qdbus-qt6 qdbus; do
+    if command -v "$q" >/dev/null 2>&1; then QDBUS="$q"; break; fi
+done
+
+# Wallpaper -- live apply (no shell restart). When the seeded appletsrc already
+# loaded our wallpaper this is a no-op and there is NO fade; it only does
+# anything (and only then a brief fade) if the seed somehow didn't take.
+WALL=/usr/share/wallpapers/genesi/wallpaper.png
+if command -v plasma-apply-wallpaperimage >/dev/null 2>&1 && [ -f "$WALL" ]; then
+    plasma-apply-wallpaperimage "$WALL" 2>/dev/null || true
 fi
 
-# Apply color scheme
+# Color scheme -- live, no restart.
 plasma-apply-colorscheme Genesi 2>/dev/null || true
 
-# Apply icons (multiple fallback methods)
-# The package creates Tela-circle-green-dark, check if it exists first
-if [ -d "/usr/share/icons/Tela-circle-green-dark" ]; then
+# Icon theme -- plasma-changeicons repaints the running shell live (it is the
+# same tool System Settings uses), so no plasmashell --replace is needed. Also
+# persist to kdeglobals for apps that read it at start.
+if [ -d /usr/share/icons/Tela-circle-green-dark ]; then
     /usr/lib/plasma-changeicons Tela-circle-green-dark 2>/dev/null || true
     kwriteconfig6 --file kdeglobals --group Icons --key Theme Tela-circle-green-dark 2>/dev/null || true
-    kwriteconfig5 --file kdeglobals --group Icons --key Theme Tela-circle-green-dark 2>/dev/null || true
-    gtk-update-icon-cache -f -t /usr/share/icons/Tela-circle-green-dark 2>/dev/null || true
 fi
 
-# NOTE: we deliberately do NOT run genesi-layout.js anymore.
-#
-# The skel ships a complete, working plasma-org.kde.plasma.desktop-appletsrc
-# (floating panel, sized Kickoff, the AI Mode launcher AND a fully-populated
-# system tray). genesi-layout.js used to `panels().remove()` and rebuild from
-# scratch, but a script-built systemtray never instantiates the notifications
-# applet -> org.freedesktop.Notifications is never registered -> every
-# notify-send hangs ~25s and silently fails (no update-available popup, no AI
-# Mode toast, kdeconnect "could not query capabilities"). The static appletsrc
-# carries `shownItems=org.kde.plasma.notifications`, so simply LOADING it gives
-# a working notification server. Rebuilding it was redundant and harmful.
-# Reproduced + verified on an installed VM 2026-06-02.
-
-# Restart KWin to apply window decoration and effects
-if [ "$XDG_SESSION_TYPE" = "wayland" ]; then
-    kwin_wayland --replace &
-else
-    kwin_x11 --replace &
+# Window decoration / effects (Klassy, blur, rounded corners) come from the
+# seeded kwinrc. Ask KWin to reload it IN PLACE -- no compositor restart, so no
+# black flash. Safe on both X11 and Wayland (unlike kwin_wayland --replace).
+if [ -n "$QDBUS" ]; then
+    "$QDBUS" org.kde.KWin /KWin reconfigure 2>/dev/null || true
 fi
-
-# Restart plasmashell so the icon theme just written to kdeglobals takes effect
-# (plasma-changeicons/kwriteconfig don't repaint a running shell). The panel
-# layout + Kickoff sizing already come from the static appletsrc loaded at
-# login, so this is only a repaint. Brief panel flicker (~1-2s) is acceptable
-# because this is a one-shot autostart that removes itself below.
-sleep 1
-plasmashell --replace &
-disown
-sleep 2
 
 # One-shot: remove the autostart so this only runs on the very first login.
-# (There's no layout step to retry anymore — the static appletsrc is the
-# source of truth, and wallpaper/colorscheme/icons above are idempotent.)
+# (Panel layout + Kickoff sizing already come from the static appletsrc; there
+# is no layout step to retry, and every apply above is idempotent.)
 rm -f ~/.config/autostart/genesi-apply-theme.desktop
 
 exit 0

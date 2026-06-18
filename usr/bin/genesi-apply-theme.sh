@@ -37,6 +37,19 @@ fi
 # Color scheme -- live, no restart.
 plasma-apply-colorscheme Genesi 2>/dev/null || true
 
+# Selected-item text MUST stay white on the brand-green selection background.
+# Belt-and-suspenders: the skel kdeglobals and the Genesi color scheme both
+# already ship white selection foregrounds, but if any earlier seed/scheme step
+# left a dark value, selected text (e.g. in the Package Installer) goes
+# near-black and vanishes. Force it white here on every new user's first login,
+# so an installed system can never come up with the unreadable selection again.
+if command -v kwriteconfig6 >/dev/null 2>&1; then
+    kwriteconfig6 --file kdeglobals --group "Colors:Selection" \
+        --key ForegroundNormal "255,255,255" 2>/dev/null || true
+    kwriteconfig6 --file kdeglobals --group "Colors:Selection" \
+        --key ForegroundActive "255,255,255" 2>/dev/null || true
+fi
+
 # Icon theme -- plasma-changeicons repaints the running shell live (it is the
 # same tool System Settings uses), so no plasmashell --replace is needed. Also
 # persist to kdeglobals for apps that read it at start.

@@ -54,7 +54,7 @@ ForegroundVisited=155,89,182
 
 [Colors:Button]
 BackgroundAlternate=18,45,64
-BackgroundNormal=44,44,42
+BackgroundNormal=20,49,69
 DecorationFocus=29,158,117
 DecorationHover=29,158,117
 ForegroundActive=255,255,255

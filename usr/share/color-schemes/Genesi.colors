@@ -3,11 +3,11 @@ ColorScheme=Genesi
 Name=Genesi
 
 [WM]
-activeBackground=13,32,48
-activeBlend=13,32,48
+activeBackground=13,32,48,200
+activeBlend=13,32,48,200
 activeForeground=252,252,252
-inactiveBackground=18,45,64
-inactiveBlend=18,45,64
+inactiveBackground=13,32,48,200
+inactiveBlend=13,32,48,200
 inactiveForeground=161,169,177
 
 [Colors:Window]

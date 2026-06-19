@@ -23,12 +23,18 @@ VaryColorOutlineInactive=No
 [Global]
 RefreshedConfig=6.5.3
 
+# Don't let Klassy force its own titlebar opacity (was 70%, which floated the
+# titlebar lighter than the ~78% window body). With Override=false the titlebar
+# inherits the system titlebar colour [WM] from the color scheme — whose alpha we
+# match to the window body — so titlebar and body are the SAME shade. The glass
+# itself (body translucency + blur) is left exactly as it was. AI Mode goes fully
+# opaque by swapping to the opaque Genesi-Solid scheme (whose [WM] is opaque too).
 [TitleBarOpacity]
 ActiveTitleBarOpacity=70
 InactiveTitleBarOpacity=70
 OpaqueMaximizedTitleBars=false
-OverrideActiveTitleBarOpacity=true
-OverrideInactiveTitleBarOpacity=true
+OverrideActiveTitleBarOpacity=false
+OverrideInactiveTitleBarOpacity=false
 
 [Windeco]
 ButtonIconStyle=StyleFluent
@@ -40,7 +46,7 @@ WindowCornerRadius=14
 [WindowOutlineStyle]
 WindowOutlineContrastOpacityActive=100
 WindowOutlineCustomColorActive=13,32,48
-WindowOutlineCustomColorInactive=18,45,64
+WindowOutlineCustomColorInactive=13,32,48
 WindowOutlineOverlap=true
 WindowOutlineStyleActive=WindowOutlineCustomColor
 WindowOutlineStyleInactive=WindowOutlineCustomColor

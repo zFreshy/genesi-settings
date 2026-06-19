@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Genesi Panel Migration
+Exec=/usr/bin/genesi-panel-migrate.sh
+Hidden=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true
+X-KDE-autostart-after=panel
